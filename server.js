@@ -15,5 +15,5 @@ db.once("open", () => console.log("Connect to Database")); //runs only once when
 app.use(bodyParser.json());
 app.use("/subscribers", subscriberRouter);
 app.listen(port, () => {
-  console.log(`Server running @ : ${port}`);
+  console.log(`Server fired up live on : ${port}`);
 });
