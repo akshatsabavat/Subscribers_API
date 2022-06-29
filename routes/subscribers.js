@@ -40,4 +40,15 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//updating a subscriber [name]
+router.patch("/:id", async (req, res) => {
+  try {
+    const sub = await Subscriber.findById(req.params.id);
+    sub.name = req.body.name;
+    res.send({ message: "Field updated" });
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+});
+
 module.exports = router;
