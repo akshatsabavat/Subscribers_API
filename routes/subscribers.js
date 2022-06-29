@@ -51,4 +51,15 @@ router.patch("/:id", async (req, res) => {
   }
 });
 
+//deleting a subscriber
+router.patch("/:id", async (req, res) => {
+  try {
+    const sub = await Subscriber.findById(req.params.id);
+    sub.remove();
+    res.send({ message: "subscriber deleted" });
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+});
+
 module.exports = router;
