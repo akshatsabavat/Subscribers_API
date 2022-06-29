@@ -52,7 +52,7 @@ router.patch("/:id", async (req, res) => {
 });
 
 //deleting a subscriber
-router.patch("/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const sub = await Subscriber.findById(req.params.id);
     sub.remove();
