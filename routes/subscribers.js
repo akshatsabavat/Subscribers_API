@@ -30,4 +30,14 @@ router.post("/", async (req, res) => {
   }
 });
 
+//getting a subscriber
+router.get("/:id", async (req, res) => {
+  try {
+    const sub = await Subscriber.findById(req.params.id);
+    res.json(sub);
+  } catch (err) {
+    res.status(404).json({ message: err.message }); //errCode : 404 --> means object not found
+  }
+});
+
 module.exports = router;
